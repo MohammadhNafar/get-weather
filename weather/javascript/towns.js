@@ -3,6 +3,7 @@ function getTowns(cityV)
     return fetch('./city.list.json')
     .then(async Response => {
         const city = await Response.json();
+        console.log('city: ', city);
         city.filter(city => city.name.includes(cityV));
 
     })
