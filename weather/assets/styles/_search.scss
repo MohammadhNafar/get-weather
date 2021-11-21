@@ -1,0 +1,23 @@
+$input-background-color: rgba(#fff, 0.3);
+$input-border-color-active: #86b2f1;
+$input-border-radius: $border-radius ;
+$input-color: #fff;
+$input-height:5rem;
+$input-padding-horizontal:0 $padding;
+
+.search{
+  &__input {
+    background-color: $input-background-color;
+    border:0.2rem solid transparent;
+    border-radius:$input-border-radius;
+    color: $input-color;
+    height:$input-height;
+    outline: none;
+    padding:$input-padding-horizontal;
+    width: 100%;
+    font-size: 1.6rem;
+    &:focus {
+      border-color: $input-border-color-active;
+    }
+  }
+}
