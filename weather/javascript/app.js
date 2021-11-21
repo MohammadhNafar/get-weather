@@ -56,13 +56,22 @@ function getTowns(cityV)
   
   if(cityResult.length)
   {
+    let values = `<ul class="search__values">`;
+    cityResult.forEach(city => {
+
+      const valueEl = `<li class="search__values>${city.name}</li>`;
+      values += valueEl;
+    });
+    values += `</ul>`;
+    suggestEl.innerHTML = values;
     
   }
   else
   {
-    const notFound = document.createElement('DIV');
-    notFound.innerHTML = "<span> the city you looking for is not found </span>";
-    suggestEl.appendChild(notFound);
+
+    
+    const notFound = `<div class="notFound__message"><span> the city you looking for is not found </span></div>`;
+    suggestEl.innerHTML=notFound;
 
   }
 
@@ -72,8 +81,7 @@ function getTowns(cityV)
 
 }
 function closeSuggest(){
-  // const suggestEl = document.getElementsByClassName('search__suggest')[0];
-  // suggestEl.classList.remove('search__suggest--active');
+  
   suggestionAddRemove(false)
   
 
@@ -91,7 +99,6 @@ function closeSuggest(){
   else
   {
     suggestEl.classList.remove('search__suggest--active');
-
 
   }
 

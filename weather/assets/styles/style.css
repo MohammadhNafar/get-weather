@@ -395,6 +395,7 @@
   right: 0;
   max-height: 300px;
   font-family: system-ui;
+  color: gray;
   overflow-y: auto;
   border-bottom-left-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
