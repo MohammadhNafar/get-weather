@@ -34,13 +34,19 @@ function getTowns(cityV)
     .then(async response => {
         const city = await response.json();
         console.log('city: ', city);
-      return  city.filter(city => city.name.includes(cityV.toLowerCase()));
+      return  city.filter(city => city.name.toLowerCase().includes(cityV.toLowerCase()));
 
     })
     .catch(error => error)
 }
 
-window.addEventListener('DOMContentLoaded', async()=> {
-  const cityResult = await getTowns('tehran');
-  console.log('dom loaded: ' , cityResult);
-})
+
+
+
+
+ async function citySearch(event){
+  const cityResult = await getTowns(event.target.value);
+  console.log('dom loaded: ' , cityResult );
+
+}
+
