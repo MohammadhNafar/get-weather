@@ -56,6 +56,8 @@ function getTowns(cityV)
 
 function selectCity(city){
   console.log("city selected",city);
+  const inputEl =document.getElementsByClassName('search__input')[0];
+  inputEl.value = city.name;
 }
 
 
