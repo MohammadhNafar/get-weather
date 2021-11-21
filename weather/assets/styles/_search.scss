@@ -3,6 +3,10 @@ $input-border-color-active: #86b2f1;
 $input-border-radius: $border-radius ;
 $input-color: #fff;
 $input-height:5rem;
+$input-font-size: 2rem;
+$input-font-family: system-ui;
+
+
 $input-padding-horizontal:0 $padding;
 
 
@@ -15,7 +19,9 @@ $input-padding-horizontal:0 $padding;
 position: relative;
 
 
+
   &__input {
+    
     background-color: $input-background-color;
     border:0.2rem solid transparent;
     border-radius:$input-border-radius;
@@ -24,7 +30,8 @@ position: relative;
     outline: none;
     padding:$input-padding-horizontal;
     width: 100%;
-    font-size: 100%;
+    font-family: $input-font-family;
+    font-size: $input-font-size;
     -webkit-box-shadow: 1px 3px 8px 3px rgba(3,2,2,0.68); 
       box-shadow: 1px 3px 8px 3px rgba(3,2,2,0.68);
     &:focus {
@@ -35,17 +42,20 @@ position: relative;
   &__suggest {
     display: none;
     position: absolute;
-    background-color: rgb(124, 124, 124);
+    background-color: rgb(255, 255, 255);
     -webkit-box-shadow: 1px 3px 8px 3px rgba(3,2,2,0.68); 
       box-shadow: 1px 3px 8px 3px rgba(3,2,2,0.68);
     top:100%;
     left: 0;
     right: 0;
     max-height: 300px;
+    font-family: $input-font-family;
+
     overflow-y: auto;
     border-bottom-left-radius: $input-border-radius;
     border-bottom-right-radius: $input-border-radius;
     padding: 16px;
+    font-size: $input-font-size;
     
     &--active
     {

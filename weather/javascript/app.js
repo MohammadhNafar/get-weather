@@ -50,7 +50,7 @@ function getTowns(cityV)
   const suggestEl = document.getElementsByClassName('search__suggest')[0];
   
   
-   suggestEl.classList.add('search__suggest--active');
+  suggestionAddRemove(event.target.value.length);
 
 
   
@@ -60,6 +60,9 @@ function getTowns(cityV)
   }
   else
   {
+    const notFound = document.createElement('DIV');
+    notFound.innerHTML = "<span> the city you looking for is not found </span>";
+    suggestEl.appendChild(notFound);
 
   }
 
@@ -69,10 +72,27 @@ function getTowns(cityV)
 
 }
 function closeSuggest(){
-  const suggestEl = document.getElementsByClassName('search__suggest')[0];
-  suggestEl.classList.remove('search__suggest--active');
-
-
+  // const suggestEl = document.getElementsByClassName('search__suggest')[0];
+  // suggestEl.classList.remove('search__suggest--active');
+  suggestionAddRemove(false)
+  
 
 }
 
+
+ function suggestionAddRemove(hide)
+ {
+  const suggestEl = document.getElementsByClassName('search__suggest')[0];
+  if(hide)
+  {
+    suggestEl.classList.add('search__suggest--active');
+
+  }
+  else
+  {
+    suggestEl.classList.remove('search__suggest--active');
+
+
+  }
+
+ }

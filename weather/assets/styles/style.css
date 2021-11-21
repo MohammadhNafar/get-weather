@@ -374,7 +374,8 @@
   outline: none;
   padding: 0 1.6rem;
   width: 100%;
-  font-size: 100%;
+  font-family: system-ui;
+  font-size: 2rem;
   -webkit-box-shadow: 1px 3px 8px 3px rgba(3, 2, 2, 0.68);
   box-shadow: 1px 3px 8px 3px rgba(3, 2, 2, 0.68);
 }
@@ -386,17 +387,19 @@
 .search__suggest {
   display: none;
   position: absolute;
-  background-color: #7c7c7c;
+  background-color: white;
   -webkit-box-shadow: 1px 3px 8px 3px rgba(3, 2, 2, 0.68);
   box-shadow: 1px 3px 8px 3px rgba(3, 2, 2, 0.68);
   top: 100%;
   left: 0;
   right: 0;
   max-height: 300px;
+  font-family: system-ui;
   overflow-y: auto;
   border-bottom-left-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
   padding: 16px;
+  font-size: 2rem;
 }
 
 .search__suggest--active {
