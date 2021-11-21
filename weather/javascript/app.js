@@ -10,7 +10,6 @@
 const URL = "api.openweathermap.org/data/2.5";
 const key = "0525fe02cb6a5bf0dfd6b56948975b8e";
 
-
 function getCurrentWeather(cityId)
 
 {
@@ -44,6 +43,11 @@ function getTowns(cityV)
 
 
 
+
+
+
+
+
  async function citySearch(event){
   const cityResult = await getTowns(event.target.value);
   const searchEl = document.getElementsByClassName('search')[0];
@@ -56,6 +60,8 @@ function getTowns(cityV)
   
   if(cityResult.length)
   {
+    
+
     let values = `<ul class="search__values">`;
     cityResult.forEach(city => {
 
@@ -88,6 +94,8 @@ function closeSuggest(){
 }
 
 
+
+ // age hide bood active mikone age nabod barmidare active ro
  function suggestionAddRemove(hide)
  {
   const suggestEl = document.getElementsByClassName('search__suggest')[0];
@@ -96,10 +104,15 @@ function closeSuggest(){
     suggestEl.classList.add('search__suggest--active');
 
   }
+
+
+  
   else
   {
     suggestEl.classList.remove('search__suggest--active');
 
   }
+  
 
  }
+

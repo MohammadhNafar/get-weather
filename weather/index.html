@@ -13,7 +13,7 @@
 <body>
     <main class="container">
         <div class="search margin-bottom-24">
-            <input  class="search__input" type="search" oninput= "citySearch(event);" onblur="closeSuggest();">
+            <input  class="search__input" type="search" oninput= "citySearch(event);" onblur="closeSuggest();" >
             <div class="search__suggest">  </div>
         </div>
         <div class="temperature margin-bottom-40">
@@ -86,6 +86,7 @@
             </ul>
         </section>
     </main>
+    <script type="commonjs" src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/debounce.js"></script>
     <script src="./javascript/app.js"></script>
     <script src="./javascript/city.list.json"> </script>
 </body>
