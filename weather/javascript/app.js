@@ -6,7 +6,6 @@
 
 
 
-
 const URL = "api.openweathermap.org/data/2.5";
 const key = "0525fe02cb6a5bf0dfd6b56948975b8e";
 
@@ -54,22 +53,41 @@ function getTowns(cityV)
   const suggestEl = document.getElementsByClassName('search__suggest')[0];
   
   
+
+function selectCity(city){
+  console.log("city selected",city);
+}
+
+
   suggestionAddRemove(event.target.value.length);
 
+  const items = document.getElementsByClassName('search__values')[0];
+  items && items.remove();
+  const ul = document.createElement('UL');
+      ul.classList.add('search__values');
 
-  
+
+
   if(cityResult.length)
   {
     
 
-    let values = `<ul class="search__values">`;
+    
     cityResult.forEach(city => {
+      
 
-      const valueEl = `<li class="search__values>${city.name}</li>`;
-      values += valueEl;
+      const el = document.createElement('LI');
+      
+      el.classList.add('search__values');
+      el.onclick = ()=>  selectCity(city);
+      el.innerText = city.name;
+      ul.appendChild(el);
+      //const valueEl = `<li class="search__values" onclick"${select()}" >${city.name}</li>`;
+      //values += valueEl;
     });
-    values += `</ul>`;
-    suggestEl.innerHTML = values;
+    //values += `</ul>`;
+    //const ul = document.createElement('UL');
+    suggestEl.appendChild(ul);
     
   }
   else
@@ -88,7 +106,7 @@ function getTowns(cityV)
 }
 function closeSuggest(){
   
-  suggestionAddRemove(false)
+ setTimeout( ()=> suggestionAddRemove(false),1000 ) 
   
 
 }
