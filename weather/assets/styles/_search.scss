@@ -25,22 +25,32 @@ position: relative;
     padding:$input-padding-horizontal;
     width: 100%;
     font-size: 100%;
+    -webkit-box-shadow: 1px 3px 8px 3px rgba(3,2,2,0.68); 
+      box-shadow: 1px 3px 8px 3px rgba(3,2,2,0.68);
     &:focus {
       border-color: $input-border-color-active;
     }
   }
 
   &__suggest {
+    display: none;
     position: absolute;
     background-color: rgb(124, 124, 124);
     -webkit-box-shadow: 1px 3px 8px 3px rgba(3,2,2,0.68); 
       box-shadow: 1px 3px 8px 3px rgba(3,2,2,0.68);
-    top:5rem;
+    top:100%;
     left: 0;
     right: 0;
-    border-bottom-left-radius: 10%;
-    border-bottom-right-radius: 10%;
+    max-height: 300px;
+    overflow-y: auto;
+    border-bottom-left-radius: $input-border-radius;
+    border-bottom-right-radius: $input-border-radius;
+    padding: 16px;
     
+    &--active
+    {
+      display: block;
+    }
 
   }
 }

@@ -46,7 +46,33 @@ function getTowns(cityV)
 
  async function citySearch(event){
   const cityResult = await getTowns(event.target.value);
-  console.log('dom loaded: ' , cityResult );
+  const searchEl = document.getElementsByClassName('search')[0];
+  const suggestEl = document.getElementsByClassName('search__suggest')[0];
+  
+  
+   suggestEl.classList.add('search__suggest--active');
+
+
+  
+  if(cityResult.length)
+  {
+    
+  }
+  else
+  {
+
+  }
+
+
+ 
+
+
+}
+function closeSuggest(){
+  const suggestEl = document.getElementsByClassName('search__suggest')[0];
+  suggestEl.classList.remove('search__suggest--active');
+
+
 
 }
 

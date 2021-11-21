@@ -13,7 +13,7 @@
 <body>
     <main class="container">
         <div class="search margin-bottom-24">
-            <input  class="search__input" type="search" oninput= "citySearch(event);">
+            <input  class="search__input" type="search" oninput= "citySearch(event);" onblur="closeSuggest();">
             <div class="search__suggest">  </div>
         </div>
         <div class="temperature margin-bottom-40">
