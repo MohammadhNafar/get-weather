@@ -12,7 +12,7 @@ const key = "0525fe02cb6a5bf0dfd6b56948975b8e";
 function getCurrentWeather(cityId)
 
 {
-  return  fetch(`${URL}/weather?id=${cityId}&appid={${key}}`)
+  return  fetch(`https://${URL}/weather?id=${cityId}&appid=${key}`)
   .then(response => response)
   .catch(error => error)
 };
@@ -20,7 +20,7 @@ function getCurrentWeather(cityId)
 function getFiveDaysWeather(cityId)
 
 {
-  return  fetch(`${URL}/forecast?id=${cityId}&appid={${key}}`)
+  return  fetch(`https://${URL}/forecast?id=${cityId}&appid=${key}`)
   .then(response => response)
   .catch(error => error)
 };
@@ -54,10 +54,15 @@ function getTowns(cityV)
   
   
 
-function selectCity(city){
+ async function selectCity(city){
   console.log("city selected",city);
   const inputEl =document.getElementsByClassName('search__input')[0];
   inputEl.value = city.name;
+  const response = await getCurrentWeather(city.Id);
+  console.log(response);
+  
+
+
 }
 
 
