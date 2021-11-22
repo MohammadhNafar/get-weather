@@ -165,8 +165,13 @@ function editWeather(weather)
   const iconSun = document.querySelector('.sun__icon');
   titleEl.innerHTML = `${weather.name}, ${weather.sys.country}`;
   temperatureEl.innerHTML = `${Math.round(weather.main.temp-273.15)}`;
-  
+  //day.innerHTML = moment(weather.dt, "X").format('dddd')
+  console.log(weather.dt);
+
   iconSun.src = `http://openweathermap.org/img/wn/${weather.weather[0]}@2x.png`;
+  humidity.innerHTML = `${weather.main.humidity}%`;
+  pressureEl.innerHTML = `${weather.main.pressure}hPa`;
+  //wind.innerHTML = `${}`
 
 }
 
