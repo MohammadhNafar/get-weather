@@ -60,22 +60,22 @@ function getTowns(cityV)
   
   
 
- async function selectCity(city){
-  const inputEl =document.getElementsByClassName('search__input')[0];
-  inputEl.value = city.name;
-  let id = city.id;
+//  async function selectCity(city){
+//   const inputEl =document.getElementsByClassName('search__input')[0];
+//   inputEl.value = city.name;
+//   let id = city.id;
 
-  const response = await getCurrentWeather(id);
-  editWeather(response);
+//   const response = await getCurrentWeather(id);
+//   editWeather(response);
   
   
 
 
   
-  console.log("city selected",city,response);
+//   console.log("city selected",city,response);
 
 
-}
+// }
 
 
 
@@ -106,7 +106,8 @@ function getTowns(cityV)
       const el = document.createElement('LI');
       
       el.classList.add('search__values');
-      el.onclick = ()=>  selectCity(city);
+      el.setAttribute("onclick","getCityName(event)");
+      el.id = city.id;
       el.innerText = city.name;
       ul.appendChild(el);
       //const valueEl = `<li class="search__values" onclick"${select()}" >${city.name}</li>`;
@@ -131,25 +132,43 @@ function getTowns(cityV)
 
 
 }
+async function getCityName(event)
+{
+ //const response =  event.target.innerHTML;
+ const response = await getCurrentWeather(event.target.id);
+ console.log(response);
+
+  const inputEl =document.getElementsByClassName('search__input')[0];
+ inputEl.value = response.name;
+ let id = response.id;
+
+  editWeather(response);
+  
+  
+
+
+   console.log("city selected",response);
+}
 
 
 
-// function editWeather(weather)
-// {
+function editWeather(weather)
+{
 
 
-//   const titleEl = document.querySelector('city-temperature__title');
-//   const temperatureEl = document.querySelector('temperature__current-degree');
-//   const day = document.querySelector('temperature__current-day');
-//   const pressureEl = document.querySelector('.pressure');
-//   const wind = document.querySelector('wind');
-//   const humidity = document.querySelector('humidity');
-//   const iconSun = document.querySelector('sun__icon');
-//   titleEl.innerHTML = `${weather.name}, ${weather.sys.country}`;
-//   temperatureEl.innerHTML = `${weaather.main.temp}`;
-//   iconSun.src = `http://openweathermap.org/img/wn/${city.weather[0]}@2x.png`;
+  const titleEl = document.querySelector('.city-temperature__title');
+  const temperatureEl = document.querySelector('.temperature__current-degree');
+  const day = document.querySelector('.temperature__current-day');
+  const pressureEl = document.querySelector('.pressure');
+  const wind = document.querySelector('.wind');
+  const humidity = document.querySelector('.humidity');
+  const iconSun = document.querySelector('.sun__icon');
+  titleEl.innerHTML = `${weather.name}, ${weather.sys.country}`;
+  temperatureEl.innerHTML = `${Math.round(weather.main.temp-273.15)}`;
+  
+  iconSun.src = `http://openweathermap.org/img/wn/${weather.weather[0]}@2x.png`;
 
-// }
+}
 
 
 
