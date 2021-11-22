@@ -9,6 +9,12 @@
 const URL = "api.openweathermap.org/data/2.5";
 const key = "0525fe02cb6a5bf0dfd6b56948975b8e";
 
+
+
+
+
+
+
 function getCurrentWeather(cityId)
 
 {
@@ -21,7 +27,7 @@ function getFiveDaysWeather(cityId)
 
 {
   return  fetch(`https://${URL}/forecast?id=${cityId}&appid=${key}`)
-  .then(response => response)
+  .then(async response =>await response.json())
   .catch(error => error)
 };
 
@@ -60,12 +66,24 @@ function getTowns(cityV)
   let id = city.id;
 
   const response = await getCurrentWeather(id);
+  editWeather(response);
   
- 
+  
+
+
+  
   console.log("city selected",city,response);
 
 
 }
+
+
+
+
+
+
+
+
 
 
   suggestionAddRemove(event.target.value.length);
@@ -113,6 +131,46 @@ function getTowns(cityV)
 
 
 }
+
+
+
+// function editWeather(weather)
+// {
+
+
+//   const titleEl = document.querySelector('city-temperature__title');
+//   const temperatureEl = document.querySelector('temperature__current-degree');
+//   const day = document.querySelector('temperature__current-day');
+//   const pressureEl = document.querySelector('.pressure');
+//   const wind = document.querySelector('wind');
+//   const humidity = document.querySelector('humidity');
+//   const iconSun = document.querySelector('sun__icon');
+//   titleEl.innerHTML = `${weather.name}, ${weather.sys.country}`;
+//   temperatureEl.innerHTML = `${weaather.main.temp}`;
+//   iconSun.src = `http://openweathermap.org/img/wn/${city.weather[0]}@2x.png`;
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function closeSuggest(){
   
  setTimeout( ()=> suggestionAddRemove(false),1000 ) 
