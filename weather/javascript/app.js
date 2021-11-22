@@ -13,7 +13,7 @@ function getCurrentWeather(cityId)
 
 {
   return  fetch(`https://${URL}/weather?id=${cityId}&appid=${key}`)
-  .then(response => response)
+  .then(async response =>await response.json())
   .catch(error => error)
 };
 
@@ -55,12 +55,14 @@ function getTowns(cityV)
   
 
  async function selectCity(city){
-  console.log("city selected",city);
   const inputEl =document.getElementsByClassName('search__input')[0];
   inputEl.value = city.name;
-  const response = await getCurrentWeather(city.Id);
-  console.log(response);
+  let id = city.id;
+
+  const response = await getCurrentWeather(id);
   
+ 
+  console.log("city selected",city,response);
 
 
 }
