@@ -160,7 +160,7 @@ function editWeather(weather)
   const temperatureEl = document.querySelector('.temperature__current-degree');
   const day = document.querySelector('.temperature__current-day');
   const pressureEl = document.querySelector('.pressure');
-  const wind = document.querySelector('.wind');
+  const winde = document.querySelector('.wind');
   const humidity = document.querySelector('.humidity');
   const iconSun = document.querySelector('.sun__icon');
   titleEl.innerHTML = `${weather.name}, ${weather.sys.country}`;
@@ -171,11 +171,11 @@ function editWeather(weather)
   iconSun.src = `http://openweathermap.org/img/wn/${weather.weather[0]}@2x.png`;
   humidity.innerHTML = `${weather.main.humidity}%`;
   pressureEl.innerHTML = `${weather.main.pressure}hPa`;
-  //wind.innerHTML = `${}`
-
+  const deg = Math.round((weather.wind.deg / 22.5)+1);
+  winde.innerHTML = `${DIRECTIONS[deg]}, ${weather.wind.speed} m/s`;
 }
 
-
+console.log("hello world");
 
 
 
