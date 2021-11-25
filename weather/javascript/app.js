@@ -10,7 +10,11 @@ const URL = "api.openweathermap.org/data/2.5";
 const key = "0525fe02cb6a5bf0dfd6b56948975b8e";
 
 
-
+const debounced = _.debounce(citySearch,500);
+function handleInputChange(event)
+{
+    debounced();
+}
 
 
 
@@ -168,7 +172,8 @@ function editWeather(weather)
   //day.innerHTML = moment(weather.dt, "X").format('dddd')
   console.log(weather.dt);
 
-  iconSun.src = `http://openweathermap.org/img/wn/${weather.weather[0]}@2x.png`;
+  //day.innerHTML = moment(weather.dt,'X').format('dddd');
+  iconSun.src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
   humidity.innerHTML = `${weather.main.humidity}%`;
   pressureEl.innerHTML = `${weather.main.pressure}hPa`;
   const deg = Math.round((weather.wind.deg / 22.5)+1);
